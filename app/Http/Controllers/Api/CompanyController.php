@@ -22,7 +22,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = $this->repository->get();
+        $companies = $this->repository->with('category')->get();
 
         return CompanyResource::collect($companies);
     }
